@@ -1,0 +1,779 @@
+INITIAL VALUES:
+Instruction #: 0  Operation: 0  1 <- 2 op 3
+Instruction #: 1  Operation: 0  4 <- 1 op 5
+Instruction #: 2  Operation: 1  6 <- 7 op 8
+Instruction #: 3  Operation: 2  9 <- 4 op 10
+Instruction #: 4  Operation: 3  11 <- 12 op 6
+Instruction #: 5  Operation: 2  8 <- 1 op 5
+Instruction #: 6  Operation: 2  7 <- 2 op 3
+Instruction #: 7  Operation: 4  1 <- 0 op 4
+Instruction #: 8  Operation: 5  0 <- 2 op 8
+RS #: 0  Busy: 0  op: 0  Vj: 0  Vk: 0  Qj: 1002  Qk: 1002
+RS #: 1  Busy: 0  op: 0  Vj: 0  Vk: 0  Qj: 1002  Qk: 1002
+RS #: 2  Busy: 0  op: 0  Vj: 0  Vk: 0  Qj: 1002  Qk: 1002
+RS #: 3  Busy: 0  op: 0  Vj: 0  Vk: 0  Qj: 1002  Qk: 1002
+RS #: 4  Busy: 0  op: 2  Vj: 0  Vk: 0  Qj: 1002  Qk: 1002
+RS #: 5  Busy: 0  op: 2  Vj: 0  Vk: 0  Qj: 1002  Qk: 1002
+RS #: 6  Busy: 0  op: 3  Vj: 0  Vk: 0  Qj: 1002  Qk: 1002
+RS #: 7  Busy: 0  op: 3  Vj: 0  Vk: 0  Qj: 1002  Qk: 1002
+RS #: 8  Busy: 0  op: 3  Vj: 0  Vk: 0  Qj: 1002  Qk: 1002
+RS #: 9  Busy: 0  op: 4  Vj: 0  Vk: 0  Qj: 1002  Qk: 1002
+RS #: 10  Busy: 0  op: 4  Vj: 0  Vk: 0  Qj: 1002  Qk: 1002
+RS #: 11  Busy: 0  op: 5  Vj: 0  Vk: 0  Qj: 1002  Qk: 1002
+RS #: 12  Busy: 0  op: 5  Vj: 0  Vk: 0  Qj: 1002  Qk: 1002
+Register Content:
+5000 1 2 3 4 5 6 7 8 9 10 11 12 
+Register Status: 
+1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 
+
+Register Content:
+5000 1 2 3 4 5 6 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                 1
+
+0         1         0-0         0         
+1         0         0-0         0         
+2         0         0-0         0         
+3         0         0-0         0         
+4         0         0-0         0         
+5         0         0-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 1 2 3 4 5 6 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                 2
+
+0         1         2-0         0         
+1         2         0-0         0         
+2         0         0-0         0         
+3         0         0-0         0         
+4         0         0-0         0         
+5         0         0-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 1 2 3 4 5 6 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                 3
+
+0         1         2-0         0         
+1         2         0-0         0         
+2         3         0-0         0         
+3         0         0-0         0         
+4         0         0-0         0         
+5         0         0-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 1 2 3 4 5 6 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                 4
+
+0         1         2-0         0         
+1         2         0-0         0         
+2         3         4-0         0         
+3         4         0-0         0         
+4         0         0-0         0         
+5         0         0-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 1 2 3 4 5 6 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                 5
+
+0         1         2-5         0         
+1         2         0-0         0         
+2         3         4-0         0         
+3         4         0-0         0         
+4         5         0-0         0         
+5         0         0-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 4 5 6 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                 6
+
+0         1         2-5         6         
+1         2         0-0         0         
+2         3         4-0         0         
+3         4         0-0         0         
+4         5         0-0         0         
+5         6         0-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 4 5 6 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                 7
+
+0         1         2-5         6         
+1         2         7-0         0         
+2         3         4-7         0         
+3         4         0-0         0         
+4         5         0-0         0         
+5         6         7-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 4 5 -1 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                 8
+
+0         1         2-5         6         
+1         2         7-0         0         
+2         3         4-7         8         
+3         4         0-0         0         
+4         5         0-0         0         
+5         6         7-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 4 5 -1 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                 9
+
+0         1         2-5         6         
+1         2         7-0         0         
+2         3         4-7         8         
+3         4         0-0         0         
+4         5         9-0         0         
+5         6         7-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 4 5 -1 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                10
+
+0         1         2-5         6         
+1         2         7-10        0         
+2         3         4-7         8         
+3         4         0-0         0         
+4         5         9-0         0         
+5         6         7-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                11
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         0-0         0         
+4         5         9-0         0         
+5         6         7-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                12
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-0         0         
+4         5         9-0         0         
+5         6         7-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                13
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-0         0         
+4         5         9-0         0         
+5         6         7-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                14
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-0         0         
+4         5         9-0         0         
+5         6         7-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                15
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-0         0         
+4         5         9-0         0         
+5         6         7-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                16
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-0         0         
+4         5         9-0         0         
+5         6         7-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                17
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-0         0         
+4         5         9-0         0         
+5         6         7-0         0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 8 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                18
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-0         0         
+4         5         9-0         0         
+5         6         7-18        0         
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 25 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                19
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-0         0         
+4         5         9-0         0         
+5         6         7-18        19        
+6         0         0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 25 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                20
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-0         0         
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        0-0         0         
+7         0         0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 25 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                21
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-0         0         
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-0         0         
+7         21        0-0         0         
+8         0         0-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 25 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                22
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-0         0         
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-0         0         
+7         21        22-0         0         
+8         22        0-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 25 9 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                23
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        0         
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-0         0         
+7         21        22-0         0         
+8         22        23-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                24
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-0         0         
+7         21        22-0         0         
+8         22        23-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                25
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-0         0         
+7         21        22-0         0         
+8         22        23-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                26
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-0         0         
+7         21        22-0         0         
+8         22        23-0         0         
+
+
+Register Content:
+5000 5 2 3 10 5 -1 7 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                27
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-0         0         
+7         21        22-27        0         
+8         22        23-0         0         
+
+
+Register Content:
+5000 0 2 3 10 5 -1 7 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                28
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-0         0         
+7         21        22-27        28        
+8         22        23-28        0         
+
+
+Register Content:
+0 0 2 3 10 5 -1 7 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                29
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-0         0         
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 7 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                30
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-0         0         
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 7 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                31
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-0         0         
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 7 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                32
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-32        0         
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                33
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                34
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                35
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                36
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                37
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                38
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                39
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                40
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                41
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                42
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                43
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                44
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                45
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-0         0         
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 11 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                46
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-46        0         
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
+
+Register Content:
+0 0 2 3 10 5 -1 6 25 100 10 -12 12 
+Inst      Issue     Execute   WB        SystemClock
+                                                47
+
+0         1         2-5         6         
+1         2         7-10        11        
+2         3         4-7         8         
+3         4         12-23        24        
+4         5         9-46        47        
+5         6         7-18        19        
+6         20        21-32        33        
+7         21        22-27        28        
+8         22        23-28        29        
+
