@@ -31,15 +31,21 @@ using namespace std;
 const int Num_ADD_RS = 4;
 const int Num_MULT_RS = 2;
 const int Num_DIV_RS = 3;
+const int Num_LD_RS = 2;   // Load Reservation Stations
+const int Num_ST_RS = 2;   // Store Reservation Stations
 // Opcode Values
 const int AddOp = 0;
 const int SubOp = 1;
 const int MultOp = 2;
 const int DivOp = 3;
+//for load and store
+const int LwOp = 4;
+const int SwOp = 5;
 // RESERVATION STATION LATENCY
 const int ADD_Lat = 4;
 const int MULT_Lat = 12;
 const int DIV_Lat = 38;
+const int MEM_Lat = 6;     // Memory operation latency
 // Datapath Latency
 const int ISSUE_Lat = 1;
 const int WRITEBACK_Lat = 1;
@@ -57,6 +63,9 @@ const int ZERO_REG = 5000;
 const int RegStatusEmpty = 1000;
 const int OperandAvailable = 1001;
 const int OperandInit = 1002;
+
+// Memory space
+vector<int> Memory(100, 0);  // Simulated memory (100 locations)
 //#######################################################################
 
 //#######################################################################
@@ -94,9 +103,12 @@ int main(){
             I3(9,4,10,MultOp),
             I4(11,12,6,DivOp),
             I5(8,1,5,MultOp),
-            I6(7,2,3,MultOp);
+            I6(7,2,3,MultOp),
+            I7(1, 0, 4, LwOp),  // Load word: R1 <- Mem[R0 + 4]
+            I8(0, 2, 8, SwOp);  // Store word: Mem[R0 + 8] <- R2
+
     // Pack Instructions into vector
-    vector<Instruction> Inst = {I0,I1,I2,I3,I4,I5,I6};
+    vector<Instruction> Inst = {I0, I1, I2, I3, I4, I5, I6, I7, I8};
 
     //// Input reservation station architecture
     // DONT FORGET TO UPDATE ^
@@ -116,6 +128,11 @@ int main(){
             DIV1(DivOp, OperandInit),
             DIV2(DivOp, OperandInit),
             DIV3(DivOp, OperandInit);
+    ReservationStation
+            LD1(LwOp, OperandInit),
+            LD2(LwOp, OperandInit),
+            ST1(SwOp, OperandInit),
+            ST2(SwOp, OperandInit);
     // Pack reservation stations into vector
     vector<ReservationStation> ResStation = {ADD1,
                                              ADD2,
@@ -125,7 +142,12 @@ int main(){
                                              MULT2,
                                              DIV1,
                                              DIV2,
-                                             DIV3};
+                                             DIV3,
+                                             LD1,
+                                             LD2,
+                                             ST1,
+                                             ST2
+                                             };
 
     // TODO: could make this a vector rather than a class object
     // Initialize register status objects
@@ -206,7 +228,47 @@ int ISSUE(vector<Instruction>& INST,
     int RSMulEnd = Num_ADD_RS+Num_MULT_RS;
     int RSDivStart = Num_ADD_RS+Num_MULT_RS;
     int RSDivEnd = Num_ADD_RS+Num_MULT_RS+Num_DIV_RS;
+    int RSLdStart = RSDivEnd;
+    int RSLdEnd = RSDivEnd + Num_LD_RS;
+    int RSSwStart = RSLdEnd;
+    int RSSwEnd = RSLdEnd + Num_ST_RS;
     switch(r){
+        case LwOp:
+            for (int i = RSLdStart; i < RSLdEnd; i++) {
+                if (!RESSTATION[i].busy) {
+                    r = i;
+                    currentInst_ISSUE++;
+                    rsFree = true;
+                    RESSTATION[i].op = LwOp;
+                    RESSTATION[i].Qj = OperandAvailable;
+                    RESSTATION[i].Vj = REG[INST[currentInst_ISSUE - 1].rs];
+                    RESSTATION[i].Vk = INST[currentInst_ISSUE - 1].rt; // Offset
+                    break;
+                }
+            }
+            if (!rsFree)
+                return 1;
+            break;
+
+
+        case SwOp:
+            for (int i = RSSwStart; i < RSSwEnd; i++) {
+                if (!RESSTATION[i].busy) {
+                    r = i;
+                    currentInst_ISSUE++;
+                    rsFree = true;
+                    RESSTATION[i].op = SwOp;
+                    RESSTATION[i].Qj = OperandAvailable;
+                    RESSTATION[i].Vj = REG[INST[currentInst_ISSUE - 1].rs];
+                    RESSTATION[i].Vk = REG[INST[currentInst_ISSUE - 1].rt]; // Value to store
+                    break;
+                }
+            }
+            if (!rsFree)
+                return 1;
+            break;
+
+
         case AddOp:
             for(int i=RSAddStart;i<RSAddEnd;i++){
                 if(!RESSTATION[i].busy){
@@ -335,6 +397,26 @@ void EXECUTE(vector<Instruction>& INST,
                     //		case(div):	clock += 38;
                     RESSTATION[r].lat++;
                     switch(RESSTATION[r].op){
+                        case LwOp:
+                            if (RESSTATION[r].lat == MEM_Lat) {
+                                int effectiveAddr = RESSTATION[r].Vj + RESSTATION[r].Vk;
+                                RESSTATION[r].result = Memory[effectiveAddr];
+                                RESSTATION[r].resultReady = true;
+                                INST[RESSTATION[r].instNum].executeClockEnd = Clock;
+                                RESSTATION[r].lat = 0;
+                            }
+                            break;
+
+                        case SwOp:
+                            if (RESSTATION[r].lat == MEM_Lat) {
+                                int effectiveAddr = RESSTATION[r].Vj + RESSTATION[r].Vk;
+                                Memory[effectiveAddr] = RESSTATION[r].Vk;
+                                RESSTATION[r].resultReady = true;
+                                INST[RESSTATION[r].instNum].executeClockEnd = Clock;
+                                RESSTATION[r].lat = 0;
+                            }
+                            break;
+
                         case(AddOp):
                             if(RESSTATION[r].lat == ADD_Lat){
                                 RESSTATION[r].result = RESSTATION[r].Vj + RESSTATION[r].Vk;
@@ -407,6 +489,18 @@ void WRITEBACK(vector<Instruction>& INST,
                     INST[RESSTATION[r].instNum].writebackClock = Clock;
                 // Check if any registers (via the registerStatus)
                 // are waiting for current r result
+
+                // Add handling for LW (Load Word)
+                if(RESSTATION[r].op == LwOp) {
+                    if(REGSTATUS[INST[RESSTATION[r].instNum].rd].Qi == r) {
+                        // Write back loaded value to the register
+                        REG[INST[RESSTATION[r].instNum].rd] = RESSTATION[r].result;
+                        REGSTATUS[INST[RESSTATION[r].instNum].rd].Qi = RegStatusEmpty;
+                    }
+                }
+
+                // store does not write back to register only to memory
+
                 for(int x=0;x<REG.size();x++) {
                     // if RegisterStatus points to the given
                     // reservation station r set that register[x]
